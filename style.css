@@ -1,0 +1,660 @@
+/* --- Базові налаштування (Reset & Variables) --- */
+:root {
+    --bg-main: #F4F3ED; /* Світлий бежевий фон */
+    --text-dark: #3A4033; /* Темний колір тексту (заголовки) */
+    --text-muted: #8A8D86; /* Сірий текст навігації */
+    --btn-color: #556B4E; /* Зелений колір кнопки */
+    --section-green: #94A187; /* Зелений фон другої секції */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Montserrat', sans-serif; /* Базовий шрифт */
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.header {
+    position: absolute; /* Накладаємо поверх фону */
+    top: 0;
+    left: 0;
+    right: 0; /* Ці три рядки + margin auto ідеально центрують абсолютний блок */
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    z-index: 100;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-dark);
+}
+
+.separator {
+    color: #D1D1D1;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 180px 5% 40px; /* 180px - це відступ зверху, щоб текст не заліз під шапку */
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 90vh; /* Розтягуємо блок майже на всю висоту екрану */
+}
+
+.banner-content {
+    flex: 1;
+    max-width: 550px;
+}
+
+.banner-title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--text-dark);
+}
+
+.banner-description {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.banner-btn {
+    background-color: var(--btn-color);
+    color: #ffffff;
+    border: none;
+    padding: 16px 36px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 1.3;
+    transition: background-color 0.3s ease;
+}
+
+.banner-btn:hover {
+    background-color: #43553e; /* Трохи темніший при наведенні */
+}
+
+.banner-image {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end; /* Притискаємо вазон до правого краю */
+    z-index: 1;
+}
+
+.banner-image img {
+    width: 100%;
+    max-width: 650px; /* Щоб на великому моніторі не став розміром з реальний вазон */
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- Features Section --- */
+.features {
+    background-color: var(--section-green);
+    padding: 80px 5%;
+    position: relative;
+}
+
+.features .section-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.feature-title {
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Відступ між іконкою (якщо додаси) та текстом */
+}
+
+.feature-text {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* --- Секція "Як це працює" (How it works) --- */
+.how-it-works {
+    padding: 80px 5%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.how-it-works .section-header {
+    font-size: 40px;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.how-container {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Великий відступ між текстом і відео */
+}
+
+.how-text {
+    flex: 1;
+}
+
+.how-subheader {
+    font-size: 24px;
+    color: var(--btn-color); /* Темно-зелений */
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.steps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.step-item {
+    background-color: #ffffff;
+    border-radius: 40px; /* Овальна форма */
+    padding: 10px 30px 10px 10px; /* Більший відступ справа, менший зліва біля кружечка */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Легка тінь для об'єму */
+}
+
+.step-number {
+    background-color: var(--text-dark); /* Темний кружечок */
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.step-text {
+    font-size: 16px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.how-image {
+    flex: 1.2; /* Відео займає трохи більше місця */
+}
+
+.how-image video {
+    border-radius: 24px; /* Закруглені кути для відео */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* --- Секція "Особливості продукту" (Product specs) --- */
+.product-specs {
+    background-color: #EBE8E1; /* Трохи темніший бежевий фон, як на макеті */
+    padding: 80px 5%;
+}
+
+.product-specs .section-header {
+    text-align: center;
+    font-size: 40px;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки для десктопу */
+    gap: 24px;
+    max-width: 1200px; /* Трохи вужчий контейнер, щоб картки виглядали як на дизайні */
+    margin: 0 auto;
+}
+
+.spec-card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.spec-header {
+    display: flex;
+    justify-content: space-between; /* Розсуває текст і майбутню іконку по краях */
+    align-items: flex-start;
+}
+
+.spec-title {
+    font-size: 22px;
+    color: var(--btn-color); /* Темно-зелений заголовок */
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.spec-text {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* --- Секція "Функції мобільного додатку" (App Features) --- */
+.app-features {
+    padding: 80px 5%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.app-features .section-header {
+    font-size: 40px;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.app-container {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Відступ між списком і відео */
+}
+
+.app-list {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.app-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.app-number {
+    background-color: var(--btn-color); /* Зелений кружечок */
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.app-item-title {
+    font-size: 20px;
+    color: var(--btn-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.app-item-text {
+    font-size: 16px;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.app-image {
+    flex: 1;
+}
+
+.app-image video {
+    width: 100%;
+    border-radius: 24px;
+    display: block;
+    object-fit: cover;
+}
+
+/* --- Секція "Що у комплекті" (Kit Content) --- */
+.kit-content {
+    background-color: var(--section-green); /* Той самий зелений фон */
+    padding: 80px 5%;
+}
+
+.kit-content .section-header {
+    font-size: 40px;
+    color: #ffffff;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kit-grid {
+    display: grid;
+    /* Перша колонка широка, дві наступні вужчі */
+    grid-template-columns: 2fr 1fr 1fr; 
+    grid-template-rows: auto auto; /* Два ряди висотою по контенту */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.kit-item {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Розсуває картинку і текст */
+    align-items: flex-start; /* Текст зліва */
+}
+
+.large-item {
+    grid-column: 1 / 2; /* Займає першу колонку */
+    grid-row: 1 / 3;    /* Розтягується на два ряди вниз */
+    padding: 40px;
+}
+
+.kit-item img {
+    max-width: 100%;
+    height: auto;
+    align-self: center; /* Центруємо картинки по горизонталі */
+    margin-bottom: 20px;
+}
+
+.kit-item figcaption {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--btn-color);
+    line-height: 1.2;
+}
+
+.large-item figcaption {
+    font-size: 28px; /* Більший шрифт для великого блоку */
+}
+
+/* --- Секція "Відгуки" (Testimonials) --- */
+.testimonials {
+    padding: 80px 5%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.testimonials .section-header {
+    text-align: center;
+    font-size: 40px;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviewer-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--btn-color);
+}
+
+.review-text {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* --- Футер (Footer) --- */
+.footer {
+    background-color: #EBE8E1; /* Відтінок як у секції з особливостями */
+    padding: 60px 5%;
+    border-top: 1px solid #DCD9D0;
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1; /* Щоб контент був поверх фонових картинок, якщо додаси листя */
+}
+
+.footer-brand, .footer-links, .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.footer-tagline {
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.social-icon {
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.footer-links a, .footer-contact a {
+    color: var(--text-dark);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    font-size: 15px;
+    transition: text-decoration-color 0.3s;
+}
+
+.footer-links a:hover, .footer-contact a:hover {
+    text-decoration-color: var(--text-dark);
+}
+
+.copyright {
+    color: #666666;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* =========================================
+   АДАПТИВНІСТЬ (RESPONSIVE DESIGN)
+   ========================================= */
+
+/* --- Планшети (до 992px) --- */
+@media (max-width: 992px) {
+    .specs-grid, .kit-grid, .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr); /* По 2 картки в ряд */
+    }
+    
+    .large-item {
+        grid-column: 1 / -1; /* Велика картка на всю ширину */
+        grid-row: auto;
+    }
+
+    .how-container, .app-container {
+        gap: 40px;
+    }
+}
+
+/* --- Телефони (до 768px) --- */
+@media (max-width: 768px) {
+    /* Загальне зменшення відступів та шрифтів */
+    .features, .how-it-works, .product-specs, .app-features, .kit-content, .testimonials {
+        padding: 50px 5%;
+    }
+
+    .section-title, .section-header {
+        font-size: 28px !important;
+        margin-bottom: 30px !important;
+        text-align: center;
+    }
+
+    /* Header & Banner */
+    .header-nav {
+        display: none; /* Ховаємо меню на телефоні */
+    }
+    
+    .header {
+        justify-content: center;
+    }
+
+    .banner {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .banner-content {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+    z-index: 101; /* Текст має бути поверх всього, навіть поверх листя, якщо вони перетнуться */
+}
+
+    .banner-title {
+        font-size: 38px;
+    }
+
+    /* Блоки з контентом та картинками/відео */
+    .how-container, .app-container {
+        flex-direction: column;
+    }
+
+    /* Ставимо відео вище за текст на мобільному */
+    .how-image, .app-image {
+        order: -1; 
+        width: 100%;
+    }
+
+    /* Всі сітки в одну колонку */
+    .features-container, 
+    .specs-grid, 
+    .kit-grid, 
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .large-item {
+        padding: 24px; /* Повертаємо стандартний відступ */
+    }
+
+    .large-item figcaption {
+        font-size: 20px;
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .footer-brand, .footer-links, .footer-contact {
+        align-items: center;
+    }
+}
