@@ -1,10 +1,10 @@
-/* --- Базові налаштування (Reset & Variables) --- */
 :root {
-    --bg-main: #F4F3ED; /* Світлий бежевий фон */
-    --text-dark: #3A4033; /* Темний колір тексту (заголовки) */
-    --text-muted: #8A8D86; /* Сірий текст навігації */
-    --btn-color: #556B4E; /* Зелений колір кнопки */
-    --section-green: #94A187; /* Зелений фон другої секції */
+    --bg-main: #F4F3ED;
+    --text-dark: #3A4033;
+    --text-muted: #8A8D86;
+    --btn-color: #556B4E;
+    --section-green: #94A187;
+    --bg-secondary: #EBE8E1;
 }
 
 * {
@@ -14,17 +14,18 @@
 }
 
 body {
-    font-family: 'Inter', 'Montserrat', sans-serif; /* Базовий шрифт */
+    font-family: 'Inter', 'Montserrat', sans-serif;
     background-color: var(--bg-main);
     color: var(--text-dark);
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 .header {
-    position: absolute; /* Накладаємо поверх фону */
+    position: absolute; 
     top: 0;
     left: 0;
-    right: 0; /* Ці три рядки + margin auto ідеально центрують абсолютний блок */
+    right: 0; 
     margin: 0 auto;
     width: 100%;
     max-width: 1440px;
@@ -40,9 +41,6 @@ body {
     font-weight: 700;
     text-decoration: none;
     color: var(--text-dark);
-    display: flex;
-    align-items: center;
-    gap: 8px;
 }
 
 .header-nav {
@@ -70,15 +68,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 180px 5% 40px; /* 180px - це відступ зверху, щоб текст не заліз під шапку */
+    padding: 180px 5% 40px; 
     max-width: 1440px;
     margin: 0 auto;
-    min-height: 90vh; /* Розтягуємо блок майже на всю висоту екрану */
+    min-height: 90vh; 
 }
 
 .banner-content {
-    flex: 1;
+    width: 50%;
     max-width: 550px;
+    z-index: 2;
 }
 
 .banner-title {
@@ -86,7 +85,6 @@ body {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 24px;
-    color: var(--text-dark);
 }
 
 .banner-description {
@@ -110,24 +108,24 @@ body {
 }
 
 .banner-btn:hover {
-    background-color: #43553e; /* Трохи темніший при наведенні */
+    background-color: #43553e;
 }
 
 .banner-image {
     width: 50%;
     display: flex;
-    justify-content: flex-end; /* Притискаємо вазон до правого краю */
+    justify-content: flex-end; 
     z-index: 1;
+    margin-right: -300px;
 }
 
 .banner-image img {
     width: 100%;
-    max-width: 650px; /* Щоб на великому моніторі не став розміром з реальний вазон */
+    max-width: 650px; 
     height: auto;
     object-fit: contain;
 }
 
-/* --- Features Section --- */
 .features {
     background-color: var(--section-green);
     padding: 80px 5%;
@@ -163,7 +161,14 @@ body {
     margin-bottom: 16px;
     display: flex;
     align-items: center;
-    gap: 12px; /* Відступ між іконкою (якщо додаси) та текстом */
+    gap: 16px; 
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .feature-text {
@@ -172,14 +177,13 @@ body {
     line-height: 1.6;
 }
 
-/* --- Секція "Як це працює" (How it works) --- */
 .how-it-works {
     padding: 80px 5%;
     max-width: 1440px;
     margin: 0 auto;
 }
 
-.how-it-works .section-header {
+.section-header {
     font-size: 40px;
     color: var(--text-dark);
     margin-bottom: 40px;
@@ -189,7 +193,7 @@ body {
 .how-container {
     display: flex;
     align-items: center;
-    gap: 80px; /* Великий відступ між текстом і відео */
+    gap: 80px;
 }
 
 .how-text {
@@ -198,7 +202,7 @@ body {
 
 .how-subheader {
     font-size: 24px;
-    color: var(--btn-color); /* Темно-зелений */
+    color: var(--btn-color);
     margin-bottom: 30px;
     font-weight: 600;
 }
@@ -212,16 +216,16 @@ body {
 
 .step-item {
     background-color: #ffffff;
-    border-radius: 40px; /* Овальна форма */
-    padding: 10px 30px 10px 10px; /* Більший відступ справа, менший зліва біля кружечка */
+    border-radius: 40px;
+    padding: 10px 30px 10px 10px;
     display: flex;
     align-items: center;
     gap: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Легка тінь для об'єму */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 .step-number {
-    background-color: var(--text-dark); /* Темний кружечок */
+    background-color: var(--text-dark);
     color: #ffffff;
     width: 44px;
     height: 44px;
@@ -241,37 +245,32 @@ body {
 }
 
 .how-image {
-    flex: 1.2; /* Відео займає трохи більше місця */
+    flex: 1.2;
 }
 
 .how-image video {
-    border-radius: 24px; /* Закруглені кути для відео */
+    border-radius: 24px;
     width: 100%;
     height: auto;
     object-fit: cover;
     display: block;
 }
 
-
-/* --- Секція "Особливості продукту" (Product specs) --- */
 .product-specs {
-    background-color: #EBE8E1; /* Трохи темніший бежевий фон, як на макеті */
+    background-color: var(--bg-secondary);
     padding: 80px 5%;
 }
 
 .product-specs .section-header {
     text-align: center;
-    font-size: 40px;
-    color: var(--text-dark);
     margin-bottom: 50px;
-    font-weight: 700;
 }
 
 .specs-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 колонки для десктопу */
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    max-width: 1200px; /* Трохи вужчий контейнер, щоб картки виглядали як на дизайні */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -286,15 +285,21 @@ body {
 
 .spec-header {
     display: flex;
-    justify-content: space-between; /* Розсуває текст і майбутню іконку по краях */
+    justify-content: space-between;
     align-items: flex-start;
 }
 
 .spec-title {
     font-size: 22px;
-    color: var(--btn-color); /* Темно-зелений заголовок */
+    color: var(--btn-color);
     font-weight: 600;
     line-height: 1.3;
+}
+
+.spec-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
 }
 
 .spec-text {
@@ -303,24 +308,16 @@ body {
     line-height: 1.5;
 }
 
-/* --- Секція "Функції мобільного додатку" (App Features) --- */
 .app-features {
     padding: 80px 5%;
     max-width: 1440px;
     margin: 0 auto;
 }
 
-.app-features .section-header {
-    font-size: 40px;
-    color: var(--text-dark);
-    margin-bottom: 50px;
-    font-weight: 700;
-}
-
 .app-container {
     display: flex;
     align-items: center;
-    gap: 60px; /* Відступ між списком і відео */
+    gap: 60px;
 }
 
 .app-list {
@@ -338,7 +335,7 @@ body {
 }
 
 .app-number {
-    background-color: var(--btn-color); /* Зелений кружечок */
+    background-color: var(--btn-color);
     color: #ffffff;
     width: 40px;
     height: 40px;
@@ -375,16 +372,13 @@ body {
     object-fit: cover;
 }
 
-/* --- Секція "Що у комплекті" (Kit Content) --- */
 .kit-content {
-    background-color: var(--section-green); /* Той самий зелений фон */
+    background-color: var(--section-green);
     padding: 80px 5%;
 }
 
 .kit-content .section-header {
-    font-size: 40px;
     color: #ffffff;
-    margin-bottom: 40px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -392,9 +386,8 @@ body {
 
 .kit-grid {
     display: grid;
-    /* Перша колонка широка, дві наступні вужчі */
     grid-template-columns: 2fr 1fr 1fr; 
-    grid-template-rows: auto auto; /* Два ряди висотою по контенту */
+    grid-template-rows: auto auto;
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -406,20 +399,20 @@ body {
     padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Розсуває картинку і текст */
-    align-items: flex-start; /* Текст зліва */
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .large-item {
-    grid-column: 1 / 2; /* Займає першу колонку */
-    grid-row: 1 / 3;    /* Розтягується на два ряди вниз */
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
     padding: 40px;
 }
 
 .kit-item img {
     max-width: 100%;
     height: auto;
-    align-self: center; /* Центруємо картинки по горизонталі */
+    align-self: center;
     margin-bottom: 20px;
 }
 
@@ -431,10 +424,9 @@ body {
 }
 
 .large-item figcaption {
-    font-size: 28px; /* Більший шрифт для великого блоку */
+    font-size: 28px;
 }
 
-/* --- Секція "Відгуки" (Testimonials) --- */
 .testimonials {
     padding: 80px 5%;
     max-width: 1440px;
@@ -443,10 +435,6 @@ body {
 
 .testimonials .section-header {
     text-align: center;
-    font-size: 40px;
-    color: var(--text-dark);
-    margin-bottom: 50px;
-    font-weight: 700;
 }
 
 .testimonials-grid {
@@ -490,12 +478,12 @@ body {
     line-height: 1.6;
 }
 
-/* --- Футер (Footer) --- */
 .footer {
-    background-color: #EBE8E1; /* Відтінок як у секції з особливостями */
+    background-color: var(--bg-secondary);
     padding: 60px 5%;
     border-top: 1px solid #DCD9D0;
     position: relative;
+    overflow: hidden;
 }
 
 .footer-container {
@@ -504,7 +492,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
-    z-index: 1; /* Щоб контент був поверх фонових картинок, якщо додаси листя */
+    z-index: 1;
 }
 
 .footer-brand, .footer-links, .footer-contact {
@@ -518,14 +506,10 @@ body {
     font-weight: 700;
     color: var(--text-dark);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
     margin-bottom: 8px;
 }
 
 .footer-tagline {
-    color: var(--text-dark);
     font-size: 15px;
     line-height: 1.5;
 }
@@ -536,10 +520,14 @@ body {
     margin-top: 8px;
 }
 
-.social-icon {
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
+.social-link img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s;
+}
+
+.social-link:hover img {
+    opacity: 0.7;
 }
 
 .footer-links a, .footer-contact a {
@@ -560,18 +548,32 @@ body {
     margin-top: 8px;
 }
 
-/* =========================================
-   АДАПТИВНІСТЬ (RESPONSIVE DESIGN)
-   ========================================= */
+.footer-decor {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    max-width: 40%;
+    z-index: 0;
+    pointer-events: none;
+}
 
-/* --- Планшети (до 992px) --- */
+.features-decor {
+    position: absolute;
+    bottom: -180px;
+    right: -150px;
+    width: 280px;
+    z-index: 5;
+    pointer-events: none;
+}
+
 @media (max-width: 992px) {
     .specs-grid, .kit-grid, .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr); /* По 2 картки в ряд */
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .large-item {
-        grid-column: 1 / -1; /* Велика картка на всю ширину */
+        grid-column: 1 / -1;
         grid-row: auto;
     }
 
@@ -580,9 +582,7 @@ body {
     }
 }
 
-/* --- Телефони (до 768px) --- */
 @media (max-width: 768px) {
-    /* Загальне зменшення відступів та шрифтів */
     .features, .how-it-works, .product-specs, .app-features, .kit-content, .testimonials {
         padding: 50px 5%;
     }
@@ -593,60 +593,45 @@ body {
         text-align: center;
     }
 
-    /* Header & Banner */
-    .header-nav {
-        display: none; /* Ховаємо меню на телефоні */
-    }
+    .header-nav { display: none; }
     
-    .header {
-        justify-content: center;
-    }
+    .header { justify-content: center; }
 
     .banner {
         flex-direction: column;
         text-align: center;
-        padding-top: 20px;
+        padding-top: 120px;
+        min-height: auto;
     }
 
     .banner-content {
-    flex: 1;
-    max-width: 600px;
-    position: relative;
-    z-index: 101; /* Текст має бути поверх всього, навіть поверх листя, якщо вони перетнуться */
-}
-
-    .banner-title {
-        font-size: 38px;
+        width: 100%;
+        margin-bottom: 40px;
     }
 
-    /* Блоки з контентом та картинками/відео */
+    .banner-title { font-size: 38px; }
+
+    .banner-image {
+        width: 100%;
+        justify-content: center;
+    }
+
     .how-container, .app-container {
         flex-direction: column;
     }
 
-    /* Ставимо відео вище за текст на мобільному */
     .how-image, .app-image {
         order: -1; 
         width: 100%;
     }
 
-    /* Всі сітки в одну колонку */
-    .features-container, 
-    .specs-grid, 
-    .kit-grid, 
-    .testimonials-grid {
+    .features-container, .specs-grid, .kit-grid, .testimonials-grid {
         grid-template-columns: 1fr;
     }
 
-    .large-item {
-        padding: 24px; /* Повертаємо стандартний відступ */
-    }
+    .large-item { padding: 24px; }
+    .large-item figcaption { font-size: 20px; }
 
-    .large-item figcaption {
-        font-size: 20px;
-    }
-
-    /* Footer */
     .footer-container {
         flex-direction: column;
         text-align: center;
